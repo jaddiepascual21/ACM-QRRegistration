@@ -35,11 +35,11 @@ public class ACMQR extends JFrame implements Runnable, ThreadFactory {
     private JFrame frame;
     private JLabel label = new JLabel();	
     
-    public void init() {
+    public void int() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         getContentPane().setLayout(null);
         Dimension size = WebcamResolution.QVGA.getSize();
-        webcam = Webcam.getWebcams().get(0);
+        webcam = Webcam.getWebcam().get(0);
         webcam.setViewSize(size);
 
         panel = new WebcamPanel(webcam);
@@ -106,7 +106,7 @@ public class ACMQR extends JFrame implements Runnable, ThreadFactory {
                         JOptionPane.showMessageDialog(null, "Error: \""+result.getText()+"\" not in database.");
                         ex.printStackTrace();
                     }
-                    //JOptionPane.showMessageDialog(null, result.getText());
+                    
                 }
             }
         } while (true);
@@ -116,7 +116,7 @@ public class ACMQR extends JFrame implements Runnable, ThreadFactory {
         try {
 			label.setText("Name: "+DB.getName(uid));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
     }
@@ -128,7 +128,7 @@ public class ACMQR extends JFrame implements Runnable, ThreadFactory {
     
     public static void main(String[] args) {
         ACMQR acm = new ACMQR();
-        acm.init();
+        acm.int();
         acm.run();
     }
 }
